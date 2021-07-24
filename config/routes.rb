@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :instructions
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
   post '/users', to: 'users#create'
