@@ -8,6 +8,10 @@ class UsersController < ApplicationController
         render json: User.find(params[:id])
     end
 
+    def books
+        render json: User.find(params[:id]).recipe_names
+    end
+
     def create
         render json: User.create(user_params)
     end
