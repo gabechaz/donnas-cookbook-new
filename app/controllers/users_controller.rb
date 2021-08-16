@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     #This method is so the front end has a route to pull just the names of the recipes of any given user. 
     def books
-        render json: User.find(params[:id]).recipe_names
+        render json: User.find(params[:id]).recipe_info
     end
 
     def create
