@@ -3,7 +3,11 @@ class Recipe < ApplicationRecord
     has_many :ingredients
     has_many :instructions
 
-    # def info
-    #     self.
-    # end
+    def info
+        {
+    name: self.name,
+    ingredients: self.ingredients,
+    instructions: self.instructions
+        }
+    end
 end
