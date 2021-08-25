@@ -6,8 +6,9 @@ class Recipe < ApplicationRecord
     def info
         {
     name: self.name,
-    ingredients: self.ingredients.reverse,
-    instructions: self.instructions.reverse
+    ingredients: self.ingredients,
+    instructions: self.instructions
+    note: self.note
         }
     end
 end

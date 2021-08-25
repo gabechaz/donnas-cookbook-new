@@ -16,6 +16,6 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.permit(:name, :user_id)
+        params.permit(:name, :user_id, :note)
     end
 end
