@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
         {
     name: self.name,
     ingredients: self.ingredients,
-    instructions: self.instructions
+    instructions: self.instructions,
     note: self.note
         }
     end
