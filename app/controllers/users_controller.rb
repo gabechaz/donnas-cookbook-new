@@ -21,7 +21,24 @@ class UsersController < ApplicationController
     end
 
     def create
-        render json: User.create(user_params)
+        user =  User.create(user_params)
+        token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
+        render json: {user: user, token: token}, status: :created
+    end
+
+    def login
+        user = User.find_by(username: params[:username])
+
+        if user && user.authenticate(params[:password])
+          token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
+          render json: {user: user, token: token}
+        else
+          render json: {errors: ['Try again loser!']}
+        end
+    end
+
+    def logout 
+        @current_user = nil
     end
 
     private
