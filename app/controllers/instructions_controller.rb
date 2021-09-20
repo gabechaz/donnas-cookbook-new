@@ -11,7 +11,7 @@ end
 private
 
 def instruction_params
-    params.permit(:recipe_id, :instruction, :next)
+    params.permit(:recipe_id, :instruction, :next, :instruction)
 end
 
 end

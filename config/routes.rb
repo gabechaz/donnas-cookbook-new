@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   post '/users/me', to: 'users#me'
   get '/users/:id', to: 'users#show'
+  post '/users/login', to: 'users#login'
   post '/users', to: 'users#create'
   get '/books/:id', to: 'users#books'
+  post '/users/logout', to: 'users#logout'
 
   get '/foods', to: 'foods#index'
   get '/foods/:id', to: 'foods#show'
