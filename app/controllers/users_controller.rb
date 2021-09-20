@@ -3,11 +3,13 @@ class UsersController < ApplicationController
     before_action :authenticate, only: [:me]
 
     def index
-        render json: User.all
+
+        render json: User.all.map {|user| user.user_info}
     end
 
     def show
-        render json: User.find(params[:id]).user_info
+        x = User.find(params[:id]).user_info
+        render json: x
     end
 
     def me

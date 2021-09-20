@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
     def user_info
         {
+            id: self.id,
             username: self.username,
             recipeCount: self.recipes.length
         }
