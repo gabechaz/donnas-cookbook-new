@@ -7,4 +7,11 @@ class User < ApplicationRecord
         self.recipes.map{|recipe| {name: recipe.name, id: recipe.id}}
     end
 
+    def user_info
+        {
+            username: self.username,
+            recipeCount: self.recipes.length
+        }
+    end
+
 end

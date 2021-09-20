@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :instructions
   get '/users', to: 'users#index'
-  get '/users/me', to: 'users#me'
+  post '/users/me', to: 'users#me'
   get '/users/:id', to: 'users#show'
   post '/users', to: 'users#create'
   get '/books/:id', to: 'users#books'
