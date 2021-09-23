@@ -25,7 +25,13 @@ class UsersController < ApplicationController
     def create
         user =  User.create(user_params)
         token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
-        render json: {user: user, token: token}, status: :created
+        if user.id
+            render json: {user: user, token: token}, status: :created
+        else
+            puts user.errors.full_messages
+            render json: {errors: user.errors.full_messages}
+        end
+
     end
 
     def login
