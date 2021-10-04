@@ -27,6 +27,7 @@ class UsersController < ApplicationController
         token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
         if user.id
             render json: {user: user, token: token}, status: :created
+            @current_user = user
         else
             puts user.errors.full_messages
             render json: {errors: user.errors.full_messages}
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
         if user && user.authenticate(params[:password])
           token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
           render json: {user: user, token: token}
+          @current_user = user
         else
           render json: {errors: ['Try again loser!']}
         end
