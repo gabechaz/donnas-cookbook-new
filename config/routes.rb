@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/books/:id', to: 'users#books'
   post '/users/logout', to: 'users#logout'
+  get '/users/:page_count', to: 'users#users_page'
 
   get '/foods', to: 'foods#index'
   get '/foods/:id', to: 'foods#show'
