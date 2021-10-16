@@ -22,6 +22,13 @@ class UsersController < ApplicationController
         render json: User.find(params[:id]).recipe_info
     end
 
+
+    #This method is to send back a only a certain slice of users from the backend
+    def users_page
+        users_slice = User.all.slice(params[:count], 5)
+        render json: users_slice
+    end
+
     def create
         user =  User.create(user_params)
         token = JWT.encode({user_id: user.id}, 'codename', 'HS256')
