@@ -11,4 +11,8 @@ class Recipe < ApplicationRecord
     note: self.note
         }
     end
+
+    def recipes_by_ingredient(ingredient)
+        Recipe.all.select {|r| r.ingredients.include(ingredient)}
+    end
 end
